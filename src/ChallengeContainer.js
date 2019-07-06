@@ -1,28 +1,43 @@
 import React from 'react';
 import Challenge from './Challenge.js'
 
-import codewars_APIKEY from './codewars_APIKEY.js'
-
 class ChallengeContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { challenges: {} }
+    this.state = {
+      challenges: [
+        {id: "19078", description: "Rewrite reduce function.", initialCode: "function reduce() {<br><br>}"},
+        {id: "19079", description: "Rewrite map function.", initialCode: "function map() {}"}
+      ],
+      completed: []
+    }
   }
 
-  componentDidMount() {
-
-    const url = 'https://www.codewars.com/api/v1/code-challenges/';
-    let challenge_code = '57cc847e58a06b1492000264?';
-    fetch(url + challenge_code + 'access_key=' + codewars_APIKEY)
-    .then( (response) => response.json() )
-    .then( function(myJson) {
-      console.log(myJson);
-      console.log(JSON.stringify(myJson));
+  completeChallenge(id) {
+    console.log('completed: ' + id);
+    this.setState({
+      completed: this.state.completed.concat(id)
     })
   }
 
+  disableDoneButton() {
+
+  }
+
+  componentDidUpdate() {
+    console.log(this.state);
+  }
+
   render() {
-    return <div>retour</div>
+    return (
+      <div>
+        {
+          this.state.challenges.map( ({description, initialCode, id}) => {
+            return <Challenge id={id} description={description} initialCode={initialCode} completeChallenge={this.completeChallenge.bind(this)}/>;
+          })
+        }
+      </div>
+    )
   }
 
 }

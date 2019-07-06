@@ -15,14 +15,18 @@ const button = {
   outline: 'none'
 }
 
-function Challenge(props) {
+function Challenge({ description, initialCode, completeChallenge, id}) {
+
   return (
     <div style={challengeStyle}>
-      <p>Challenge #1: <a href={props.url} target="_blank">Link</a><br/>
-      Click the button below once it's resolved.</p>
-      <button style={button}>Done.</button>
+      <p>{description}</p>
+      <code></code>
+      <div contenteditable="true">{initialCode}</div>
+      <p>Click the button below once it's resolved.</p>
+      <button style={button} onClick={completeChallenge.bind(this, id)}>Done.</button>
     </div>
   )
+
 }
 
 export default Challenge
