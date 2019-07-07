@@ -6,7 +6,7 @@ class ChallengeContainer extends React.Component {
     super(props);
     this.state = {
       challenges: [
-        {id: "19078", description: "Rewrite reduce function.", initialCode: "function reduce() {<br><br>}"},
+        {id: "19078", description: "Rewrite reduce function.", initialCode: "function reduce() {}"},
         {id: "19079", description: "Rewrite map function.", initialCode: "function map() {}"}
       ],
       completed: []

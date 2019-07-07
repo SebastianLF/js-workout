@@ -1,5 +1,9 @@
+
+/** react-codemirror css librairies to import **/
+@import '../node_modules/codemirror/lib/codemirror.css';
+@import '../node_modules/codemirror/theme/material.css';
+
 .App {
-  text-align: center;
 }
 
 .App-logo {

@@ -1,4 +1,9 @@
 import React from 'react';
+import { Button, Segment } from 'semantic-ui-react'
+import { UnControlled as CodeMirror } from 'react-codemirror2'
+
+require('codemirror/mode/xml/xml');
+require('codemirror/mode/javascript/javascript');
 
 const challengeStyle = {
   margin: '0 auto',
@@ -20,10 +25,18 @@ function Challenge({ description, initialCode, completeChallenge, id}) {
   return (
     <div style={challengeStyle}>
       <p>{description}</p>
-      <code></code>
-      <div contenteditable="true">{initialCode}</div>
+      <CodeMirror
+        value={initialCode}
+        options={{
+          mode: 'javascript',
+          theme: 'material',
+          lineNumbers: true
+        }}
+        onChange={(editor, data, value) => {
+        }}
+      />
       <p>Click the button below once it's resolved.</p>
-      <button style={button} onClick={completeChallenge.bind(this, id)}>Done.</button>
+      <Button inverted color='green' onClick={completeChallenge.bind(this, id)}>Done.</Button>
     </div>
   )
 
