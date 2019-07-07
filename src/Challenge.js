@@ -8,8 +8,7 @@ require('codemirror/mode/javascript/javascript');
 const challengeStyle = {
   margin: '0 auto',
   padding: '30px 20px',
-  width: '50%',
-  border: '1px solid black'
+  width: '600px',
 };
 
 const button = {
@@ -20,11 +19,11 @@ const button = {
   outline: 'none'
 }
 
-function Challenge({ description, initialCode, completeChallenge, id}) {
+function Challenge({ description, initialCode, verifyChallenge, id, handleCodeChange, source }) {
 
   return (
     <div style={challengeStyle}>
-      <p>{description}</p>
+      <h2>Challenge: {description}</h2>
       <CodeMirror
         value={initialCode}
         options={{
@@ -32,11 +31,10 @@ function Challenge({ description, initialCode, completeChallenge, id}) {
           theme: 'material',
           lineNumbers: true
         }}
-        onChange={(editor, data, value) => {
-        }}
+        onChange={(editor, data, value) => handleCodeChange(value) }
       />
-      <p>Click the button below once it's resolved.</p>
-      <Button inverted color='green' onClick={completeChallenge.bind(this, id)}>Done.</Button>
+      <p>source: {source}</p>
+      <Button size='huge' color='green' onClick={verifyChallenge.bind(this)}>Test!</Button>
     </div>
   )
 

@@ -1,39 +1,47 @@
 import React from 'react';
 import Challenge from './Challenge.js'
 
+
+
 class ChallengeContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       challenges: [
-        {id: "19078", description: "Rewrite reduce function.", initialCode: "function reduce() {}"},
-        {id: "19079", description: "Rewrite map function.", initialCode: "function map() {}"}
+        {id: "19078", description: "Rewrite reduce function.", initialCode: "function reduce() {}", source: "Tyler Mcginnis", tests: []}
       ],
-      completed: []
+      draftCode: '',
+      challengesCompleted: []
     }
   }
 
-  completeChallenge(id) {
-    console.log('completed: ' + id);
-    this.setState({
-      completed: this.state.completed.concat(id)
-    })
+  handleCodeChange(value) {
+    this.setState({ draftCode: value})
+
+    console.log(value)
+    console.log(this.state.draftCode)
   }
 
-  disableDoneButton() {
-
+  verifyChallenge() {
+    console.log(Function('return 1+2'))
   }
 
   componentDidUpdate() {
-    console.log(this.state);
+    console.log(this.state)
   }
 
   render() {
+
     return (
       <div>
         {
-          this.state.challenges.map( ({description, initialCode, id}) => {
-            return <Challenge id={id} description={description} initialCode={initialCode} completeChallenge={this.completeChallenge.bind(this)}/>;
+          this.state.challenges.map( ({description, initialCode, id, handleCodeChange, source}) => {
+            return <Challenge id={id}
+                              handleCodeChange={this.handleCodeChange.bind(this)}
+                              description={description}
+                              initialCode={initialCode}
+                              verifyChallenge={this.verifyChallenge.bind(this)}
+                              source={source}/>;
           })
         }
       </div>

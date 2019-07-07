@@ -1,19 +1,23 @@
 import React from 'react';
+import { Button, Header, Icon, Segment, Select } from 'semantic-ui-react'
 
-function Focus() {
-  return (
-    <div>
-      <p>Choose the topics you want to work on.</p>
-      <div>
-        <select>
-          <option value="class">class</option>
-          <option value="this">this</option>
-          <option value="prototypes">prototypes</option>
-        </select>
-      <button>Let's go!</button>
-      </div>
-    </div>
-  )
+const Focus = () => {
+  const options = [
+    { key: '1', value: '1', text: 'Rewrite js functions' },
+    { key: '2', value: '2', text: '`this` keyword' },
+    { key: '3', value: '3', text: 'Array manipulation' },
+    { key: '4', value: '4', text: 'Equality operators' }
+  ]
+
+  return (<Segment placeholder>
+    <Header icon>
+      <Icon name='search' />
+      Choose the topic you want to train for.
+    </Header>
+    <Segment.Inline>
+      <Select placeholder='Select your topic' options={options}/>
+    </Segment.Inline>
+  </Segment>)
 }
 
 export default Focus;
