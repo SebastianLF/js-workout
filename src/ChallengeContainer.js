@@ -23,7 +23,7 @@ class ChallengeContainer extends React.Component {
   }
 
   verifyChallenge() {
-    console.log(Function('return 1+2'))
+    console.log()
   }
 
   componentDidUpdate() {
@@ -36,8 +36,7 @@ class ChallengeContainer extends React.Component {
       <div>
         {
           this.state.challenges.map( ({description, initialCode, id, handleCodeChange, source}) => {
-            return <Challenge id={id}
-                              handleCodeChange={this.handleCodeChange.bind(this)}
+            return <Challenge handleCodeChange={this.handleCodeChange.bind(this)}
                               description={description}
                               initialCode={initialCode}
                               verifyChallenge={this.verifyChallenge.bind(this)}
