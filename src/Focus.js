@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Header, Icon, Segment, Select } from 'semantic-ui-react'
+import { Header, Icon, Segment, Select } from 'semantic-ui-react'
 
 const Focus = () => {
   const options = [

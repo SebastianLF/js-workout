@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Segment } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import { UnControlled as CodeMirror } from 'react-codemirror2'
 
 require('codemirror/mode/xml/xml');
@@ -11,13 +11,13 @@ const challengeStyle = {
   width: '600px',
 };
 
-const button = {
+/* const button = {
   backgroundColor: '#2ecc71',
   border: '0px',
   color: 'white',
   padding: '5px 30px',
   outline: 'none'
-}
+} */
 
 const Challenge = ({ description, initialCode, verifyChallenge, source, handleCodeChange }) => {
   const codeEditor = renderCodeEditor(CodeMirror, initialCode, { mode: 'javascript', theme: 'material', lineNumbers: true }, handleCodeChange);
@@ -32,7 +32,7 @@ const Challenge = ({ description, initialCode, verifyChallenge, source, handleCo
   )
 }
 
-// Pure function:
+// Pure function.
 const renderCodeEditor = (Component, initialCode, options, onChangeCode) => (
   <Component value={initialCode}
               options={options}
