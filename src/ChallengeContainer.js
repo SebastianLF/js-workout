@@ -1,7 +1,6 @@
 import React from 'react';
 import Challenge from './Challenge.js'
-
-
+import { generateSerie } from './topics.js'
 
 class ChallengeContainer extends React.Component {
   constructor(props) {
@@ -26,8 +25,21 @@ class ChallengeContainer extends React.Component {
     console.log()
   }
 
-  componentDidUpdate() {
-    console.log(this.state)
+  componentDidMount() {
+    this.displayChallenge()
+  }
+
+  displayChallenge() {
+    this.setState({ challenges: this.state.challenges = generateSerie() })
+  }
+
+  nextChallenge(index = 0) {
+    const currentChallenge = this.state.challenges[index]
+    return <Challenge handleCodeChange={this.handleCodeChange.bind(this)}
+                      description={currentChallenge.description}
+                      initialCode={currentChallenge.initialCode}
+                      verifyChallenge={this.verifyChallenge.bind(this)}
+                      source={currentChallenge.source}/>;
   }
 
   render() {
@@ -35,13 +47,7 @@ class ChallengeContainer extends React.Component {
     return (
       <div>
         {
-          this.state.challenges.map( ({description, initialCode, id, handleCodeChange, source}) => {
-            return <Challenge handleCodeChange={this.handleCodeChange.bind(this)}
-                              description={description}
-                              initialCode={initialCode}
-                              verifyChallenge={this.verifyChallenge.bind(this)}
-                              source={source}/>;
-          })
+          this.nextChallenge()
         }
       </div>
     )

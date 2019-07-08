@@ -19,15 +19,15 @@ const challengeStyle = {
   outline: 'none'
 } */
 
-const Challenge = ({ description, initialCode, verifyChallenge, source, handleCodeChange }) => {
+  const Challenge = ({ description, initialCode, verifyChallenge, source, handleCodeChange }) => {
   const codeEditor = renderCodeEditor(CodeMirror, initialCode, { mode: 'javascript', theme: 'material', lineNumbers: true }, handleCodeChange);
 
   return (
-    <div style={challengeStyle}>
-      <h2>Challenge: { description }</h2>
+    <div style={ challengeStyle }>
+      <h2>Challenge: { description } </h2>
       { codeEditor }
-      <p>source: { source}</p>
-      <Button size='huge' color='green' onClick={verifyChallenge.bind(this)}>Test!</Button>
+      <p>source: { source }</p>
+      <Button size='huge' color='green' onClick={ verifyChallenge.bind(this) }>Test!</Button>
     </div>
   )
 }
