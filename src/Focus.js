@@ -12,7 +12,7 @@ const Focus = () => {
   return (<Segment placeholder>
     <Header icon>
       <Icon name='search' />
-      Choose the topic you want to train for.
+      Choose the topic you want to exercise.
     </Header>
     <Segment.Inline>
       <Select placeholder='Select your topic' options={options}/>

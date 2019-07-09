@@ -9,5 +9,16 @@ export function generateSerie()  {
     ]
   }
 
-  return topics[1].map( (curr) => topics[1][generateRandomNumber(4)] )
+  const newSerie = topics[1].reduce( (acc, current, index, array) => {
+    console.log(acc)
+    if(acc.includes(current)) {
+
+      return acc
+    }
+
+    return topics[1][generateRandomNumber(4)]
+  }, [])
+
+
+  return newSerie
 }

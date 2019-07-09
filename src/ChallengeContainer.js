@@ -1,6 +1,10 @@
 import React from 'react';
 import Challenge from './Challenge.js'
 import { generateSerie } from './topics.js'
+var assert = require('chai').assert
+
+const foo = 4
+assert.typeOf(foo, 'string', 'foo is a string')
 
 class ChallengeContainer extends React.Component {
   constructor(props) {
@@ -16,13 +20,10 @@ class ChallengeContainer extends React.Component {
 
   handleCodeChange(value) {
     this.setState({ draftCode: value})
-
-    console.log(value)
-    console.log(this.state.draftCode)
   }
 
   verifyChallenge() {
-    console.log()
+
   }
 
   componentDidMount() {
@@ -30,10 +31,10 @@ class ChallengeContainer extends React.Component {
   }
 
   displayChallenge() {
-    this.setState({ challenges: this.state.challenges = generateSerie() })
+    // this.setState({ challenges: generateSerie() })
   }
 
-  nextChallenge(index = 0) {
+  currentChallenge(index = 0) {
     const currentChallenge = this.state.challenges[index]
     return <Challenge handleCodeChange={this.handleCodeChange.bind(this)}
                       description={currentChallenge.description}
@@ -43,11 +44,12 @@ class ChallengeContainer extends React.Component {
   }
 
   render() {
+    const currentChallenge = this.currentChallenge()
 
     return (
       <div>
         {
-          this.nextChallenge()
+          currentChallenge
         }
       </div>
     )
