@@ -1,10 +1,7 @@
 import React from 'react';
 import Challenge from './Challenge.js'
 import { generateSerie } from './topics.js'
-var assert = require('chai').assert
 
-const foo = 4
-assert.typeOf(foo, 'string', 'foo is a string')
 
 class ChallengeContainer extends React.Component {
   constructor(props) {
@@ -31,7 +28,7 @@ class ChallengeContainer extends React.Component {
   }
 
   displayChallenge() {
-    // this.setState({ challenges: generateSerie() })
+    this.setState({ challenges: generateSerie() })
   }
 
   currentChallenge(index = 0) {
