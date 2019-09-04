@@ -1,21 +1,15 @@
 import React from 'react';
 import { Header, Icon, Segment, Select } from 'semantic-ui-react'
+import { topics } from './utils/data'
 
 const Focus = () => {
-  const options = [
-    { key: '1', value: '1', text: 'Rewrite js functions' },
-    { key: '2', value: '2', text: '`this` keyword' },
-    { key: '3', value: '3', text: 'Array manipulation' },
-    { key: '4', value: '4', text: 'Equality operators' }
-  ]
-
   return (<Segment placeholder>
     <Header icon>
       <Icon name='search' />
       Choose the topic you want to exercise.
     </Header>
     <Segment.Inline>
-      <Select placeholder='Select your topic' options={options}/>
+      <Select placeholder='Select your topic' options={topics} />
     </Segment.Inline>
   </Segment>)
 }
