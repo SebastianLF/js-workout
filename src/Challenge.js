@@ -9,23 +9,10 @@ const challengeStyle = {
   margin: '0 auto',
   padding: '30px 20px',
   width: '600px'
-};
-
-/* const button = {
-  backgroundColor: '#2ecc71',
-  border: '0px',
-  color: 'white',
-  padding: '5px 30px',
-  outline: 'none'
-} */
+}
 
 const Challenge = ({ description, initialCode, verifyChallenge, source, handleCodeChange }) => {
-  const codeEditor = renderCodeEditor(CodeMirror, initialCode, {
-    mode: 'javascript',
-    theme: 'material',
-    lineNumbers: true
-  }, handleCodeChange);
-  const options = { mode: 'javscript', theme: 'material', lineNumbers: true }
+  const options = { mode: 'javascript', theme: 'material', lineNumbers: true }
 
   return (
     <div style={challengeStyle}>
@@ -42,13 +29,5 @@ const Challenge = ({ description, initialCode, verifyChallenge, source, handleCo
     </div>
   )
 }
-
-const renderCodeEditor = (Component, initialCode, options, onChangeCode) => (
-  <Component value={initialCode}
-    options={options}
-    onChange={onChangeCode}
-  />
-)
-
 
 export default Challenge
