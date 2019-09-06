@@ -1,8 +1,13 @@
-import {generateSerie} from './topics.js';
+import { generateSerie } from './topics.js';
 
+// testing 
 describe('Array returned', () => {
 
   it('the type returned should be an Array.', () => {
+    expect(Array.isArray(generateSerie())).toBe(true)
+  });
+
+  it('the type returned .', () => {
     expect(Array.isArray(generateSerie())).toBe(true)
   });
 
