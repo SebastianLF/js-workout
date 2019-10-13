@@ -1,6 +1,7 @@
 import React from 'react';
 import Focus from './Focus.js';
 import ChallengeContainer from './ChallengeContainer.js';
+import esprima from 'esprima'
 
 // import logo from './logo.svg';
 import './App.css';
